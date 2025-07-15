@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNDO CORINTHIANO</title>
+    <style>
+        html {
+            scroll-behavior: smooth;  /*Ao clicar, a página rola suavemente até a seção */
+        }
+
+        body {
+            margin: 0; /*serve pra zerar as margens externas de um elemento */
+            padding-top: 200px; /* espaço para header + nav fixos */
+            font-family: sans-serif; /* define qual fonte de texto o site vai usar */
+            background-color: dimgray;
+
+        }
+
+        header {
+            background-image: url(https://static.corinthians.com.br/uploads/emkIJ3UA/2020-FOTO-NEUTRA.png);
+            background-position: center center; /* Centraliza a imagem de fundo horizontal e verticalmente */
+            background-size: cover; /* Faz a imagem cobrir todo o header proporcionalmente */
+            height: 150px;  /* Define a altura do header */
+            width: 100%; /*define que o elemento deve ocupar 100% da largura do seu elemento */
+            position: fixed; /* Fixa o header no topo da tela mesmo ao rolar a página */
+            top: 0;   /* Alinha o header no topo da tela */
+            left: 0;   /* Alinha o header à esquerda da tela */
+            display: flex;   /* Usa o Flexbox para alinhar os elementos internos */
+            justify-content: space-between;  /* Espaça os itens internos do header igualmente nas extremidades */
+          z-index: 2; /* Garante que o header fique acima de outros elementos da página */
+        
+        }
+
+        nav {
+            position: fixed; /* Fixa o menu de navegação na tela, mesmo quando a página rola */
+            top: 150px; /* Posiciona o nav logo abaixo do header (que tem 150px de altura) */
+            left: 0; /* Alinha o nav à esquerda da tela */
+            width: 100%; /* Faz o nav ocupar toda a largura da tela */
+            background-color: white;
+            text-align: center;
+            font-size: 18px; /* Define o tamanho da fonte dos links */
+            border-top: solid black; /* Adiciona uma borda preta na parte superior do nav */
+            border-bottom: solid black; /* Adiciona uma borda preta na parte inferior do nav */
+            height: 30px; /* Define a altura do nav */
+            display: flex;  /* Usa Flexbox para alinhar os itens dentro do nav */
+            align-items: center; /* Alinha verticalmente os itens ao centro do nav */
+            justify-content: center; /* Centraliza os itens horizontalmente dentro do nav */
+            z-index: 2; /* Garante que o nav fique acima de outros elementos */
+
+
+
+        }
+
+        nav a { /*se refere aos links dentro da tag <nav>*/
+            color: black; 
+            background-color: white;
+            text-decoration: none; /* Remove o sublinhado padrão dos links */
+            padding: 0 30px; /* Adiciona espaçamento horizontal de 30px em cada lado do link */
+
+        }
+
+        nav a:active {
+            color: gray;
+        }
+
+        nav a:hover {
+            color: red; /* Quando o mouse passa sobre o link, a cor do texto muda para vermelho */
+            text-decoration: underline;   /* Quando o mouse passa sobre o link, ele fica sublinhado */
+            font-weight: bold; /*deixa em negrito */
+            
+        }
+
+        main {
+            display: flex; /*O Flexbox é usado para organizar o layout de maneira mais flexível e eficiente. */
+            margin-left: 200px;  /* espaço reservado a esquerda do main para o aside */
+            padding: 0 20px; /* Adiciona um espaço interno nas laterais direita e esquerda do main.*/
+            flex-direction: column; /* Organiza os elementos dentro de main em uma coluna */
+            overflow: hidden; /* ajuda a manter a aparência limpa ao impedir que o conteúdo transborde para fora da área designada.*/
+            
+        }
+
+        #principal { /* esse id de div vai dentro do inicio ao fim da main*/
+            border: black solid 5px; /* aplica uma borda preta de 5px ao redor da div */
+            background-color: white;
+            margin-bottom: 65px; /* adiciona um espaço de 65px abaixo da div (distância para o próximo conteúdo) */
+        }
+
+        aside {
+            margin-top: 20px;      /* Espaço acima do aside */                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+            margin-bottom: 600px;     /* Adiciona espaço grande abaixo do aside*/                                      
+            top: 200px; 
+            left: 0;  /* Encosta o aside na lateral esquerda da página */
+            width: 200px; /* Define a largura do aside */
+            height: 100%; /* Faz o aside ocupar 100% da altura visível da tela */
+            background-color: white;
+            padding: 10px; /* Espaçamento interno do conteúdo do aside */
+            margin-left: 20PX; /* Espaço à esquerda do aside (afasta do canto da tela) */
+            border: BLACK SOLID;
+            color: white;
+            float: left; /* Faz o aside flutuar à esquerda (uso mais antigo, menos comum com flexbox) */
+            background-image: url(https://www.meutimao.com.br/_upload/wallpapers/fundo_de_tela_do_corinthians_para_android_4s_1024x768.jpg);
+            position: sticky; /* Fixa o aside na tela enquanto o usuário rola (até certo ponto) */
+            z-index: 1; /* Garante que o aside fique sobreposto corretamente em relação a outros elementos */
+            /* Garante que o aside esteja acima de outros elementos */
+          
+        }
+
+        #logo {
+            display: block;
+            margin: 0 auto;
+            height: 150px;
+            width: 125px;
+
+        }
+
+        #h11 { 
+            color: white;
+            text-align: center; 
+            line-height: 150px;
+            font-size: 30px;
+            height: 150px;
+            width: 650px;
+            margin: 0;
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+            /* #h11 - frase que vai dentro do header */
+            /* color: white - Cor do texto em branco */
+            /* text-align: center - Centraliza o texto horizontalmente */
+            /* line-height: 150px - Centraliza verticalmente o texto (mesma altura do header) */
+            /* font-size: 30px - Tamanho da fonte */
+            /* height: 150px - Altura do elemento igual ao header */
+            /* width: 650px - Largura fixa do elemento */
+            /* margin: 0 - Remove margens externas padrão */
+            /* font-family: Georgia, 'Times New Roman', Times, serif - Define a fonte do texto */
+
+        }
+
+        #h12 {
+            color: white;
+            line-height: 150px;
+            font-size: 30px;
+            height: 150px;
+            width: 630px;
+            margin: 0;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding-left: 200px;
+            /* #h12 - frase dentro do header (lado direito) */
+            /* color: white - Cor do texto branca */
+            /* line-height: 150px - Alinha verticalmente com o header */
+            /* font-size: 30px - Tamanho da fonte */
+            /* height: 150px - Altura igual ao header */
+            /* width: 630px - Largura do texto */
+            /* margin: 0 - Remove margens externas padrão */
+            /* text-align: center - Centraliza o texto horizontalmente */
+            /* font-family: Georgia, 'Times New Roman', Times, serif - Define a família da fonte */
+            /* padding-left: 200px - Afasta o texto da esquerda para compensar o aside */
+
+
+
+        }
+
+        #titulo {
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            /* #titulo - título geral da página */
+            /* text-align: center - Centraliza o texto */
+            /* background-color: #000 - Fundo preto */
+            /* color: #fff - Texto branco */
+            /* margin: 0 - Remove margens externas */
+        }
+
+
+        #a1 {
+            border: solid black;
+            border-bottom: none;
+            border-top: none;
+            border-left: none;
+            /* #a1 - estilo de uma célula ou item específico */
+            /* border: solid black - Adiciona borda preta */
+            /* border-bottom: none - Remove a borda inferior */
+            /* border-top: none - Remove a borda superior */
+            /* border-left: none - Remove a borda esquerda */ 
+        }
+
+        #a3,
+        #a5 {
+            border: solid black;
+            border-bottom: none;
+            border-top: none;
+            /* border: solid black - Adiciona borda preta */
+            /* border-bottom: none - Remove borda inferior */
+            /* border-top: none - Remove borda superior */
+        }
+
+        .z {
+            margin-left: 5%;
+            margin-right: 5%;
+            /* .z - classe usada para definir margens laterais */
+            /* margin-left: 5% - Espaço à esquerda de 5% da tela */
+            /* margin-right: 5% - Espaço à direita de 5% da tela */
+                
+        }
+
+
+        .img {
+            width: 640px;
+            height: 360px;
+            margin-left: 5%;
+            margin-right: 5%;
+            /* width: 640px - Largura fixa da imagem */
+            /* height: 360px - Altura fixa da imagem */
+            /* margin-left: 5% - Espaço à esquerda */
+            /* margin-right: 5% - Espaço à direita */
+
+        }
+        .img2{
+            width: 362px;
+            height: 385px;
+            margin-left: 5%;
+            margin-right: 5%;
+            /* width: 362px - Largura menor para imagem secundária */
+            /* height: 385px - Altura proporcional à largura */
+            /* margin-left: 5% - Espaço à esquerda */
+            /* margin-right: 5% - Espaço à direita */
+        }
+
+        #ng {
+            scroll-margin-top: 200px;
+
+        }
+
+        #mb {
+            scroll-margin-top: 200px;
+        }
+
+        #pj {
+            scroll-margin-top: 200px;
+        }
+
+        #dm {
+            scroll-margin-top: 200px;
+        }
+
+        #rc {
+            scroll-margin-top: 200px;
+        }
+
+        #elenco {
+            scroll-margin-top: 200px;
+        }
+
+        #title {
+            color: white;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-image: url(https://www.meutimao.com.br/_upload/wallpapers/fundo_de_tela_do_corinthians_para_android_4s_1024x768.jpg);
+        }
+
+        .l {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+
+        }
+
+        .l:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        #cb {
+            scroll-margin-top: 200px;
+
+        }
+
+        #sula {
+            scroll-margin-top: 200px;
+        }
+
+        #cdb {
+            scroll-margin-top: 200px;
+        }
+
+        #resultados {
+            scroll-margin-top: 200px;
+        }
+
+        #elenco1 {
+            display: flex;
+            gap: 40px;
+            border: BLACK SOLID;
+            
+
+
+
+        }
+
+        #elenco2 {
+            display: flex;
+            gap: 40px;
+            border: BLACK SOLID;
+            
+
+        }
+
+        #elenco3 {
+            display: flex;
+            gap: 40px;
+            border: BLACK SOLID;
+           
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            height: 500px;
+            margin: 0;
+            background-image: url(https://f.i.uol.com.br/fotografia/2013/05/20/278109-970x600-1.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+        }
+
+        .menufooter {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        #divfooter,
+        #divfooter2 {
+            background-color: black;
+            text-align: left;
+            width: 300px;
+            border: white solid;
+            margin: 2%;
+        }
+
+        .zi {
+            text-indent: 25px;
+        }
+
+        #ulfooter {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: justify;
+        }
+        .posicoes{
+            text-indent: 15PX;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header> <!--Usado para colocar o cabeçalho do site.-->
+        <h1 id="h11">MUNDO CORINTHIANO</h1>  
+        <h1 id="h12">MUNDO CORINTHIANO</h1>
+    </header>
+
+    <nav> <!--A tag <nav> indica claramente que aquele bloco contém links de navegação-->
+        <a class="one" id="a1" href="#ng">Notícias </a>
+        <a class="one" id="a2" href="#mb">Mercado </a>
+        <a class="one" id="a3" href="#pj"> Jogos</a>    <!-- Cada <a> (link) aponta para uma seção específica da página -->
+        <a class="one" id="a4" href="#dm">D.Médico</a>    
+        <a class="one" id="a5" href="#rc">Resultados/Classificação</a>
+        <a class="one" id="a6" href="#elenco">Elenco</a>
+
+    </nav>
+    <aside> <!-- Bloco secundário de conteúdo, geralmente usado para informações adicionais.-->
+
+        <H3> AGENDA DO TIMÃO:</H3>
+        <ul>
+            <li>América de Cali x Corinthians</li>
+
+            <li>Palmeiras x Corinthians</li>
+
+            <li>Corinthians x Fluminense</li>      <!-- lista nao numerada com os jogos do corinthians-->
+
+            <li>Corinthians x Sport</li>
+
+            <li>Corinthians x Racing(URU)</li>
+
+            <li>Flamengo x Corinthians</li>
+        </ul>
+        <br><br>
+        <img id="logo" src="Mundo_Corinthiano__1_-removebg-preview.png" alt="logo do site">
+
+    </aside>
+    <main> <!--  Parte principal do conteúdo da página com tudo que diz respeito às notícias -->
+        <h1 id="title">DO TORCEDOR PARA O TORCEDOR</h1>
+
+        <div id="principal">
+            <h1 class="z" id="titulo">MUNDO CORINTHIANO</h1>
+            <br>
+
+            <h1 class="z" id="ng">NOTÍCIAS GERAIS:</h1>
+            <br>
+
+            <h2 class="z">Corinthians conhece data e horário de sorteio da terceira fase da Copa do Brasil</h2>
+            <P class="z">O sorteio da terceira fase da Copa do Brasil acontecerá nesta quarta-feira, dia 9 de abril, às
+                15h,
+                na
+                sede da
+                CBF, no Rio de Janeiro. Durante o evento, o Timão conhecerá seu adversário para a próxima fase do
+                torneio.
+            </P>
+
+            <P class="z">
+                As partidas estão programadas para os dias 30/04 e 21/05. O Corinthians está no pote 1 de acordo com o
+                ranking de
+                clubes da CBF, por isso irá enfrentar as equipes que estiverem no pote 2. </P>
+            <img class="img" src="https://www.bnews.com.br/media/_versions/setembro_2024/cdb_GGxN54v_widemd.jpg"
+                alt="Taça CDB">
+            <h6 class="z">Publicado em: 07/04/2025 às 1:25</h6>
+            <br><br>
+
+
+            <h1 class="z" id="mb">MERCADO DA BOLA:</h1>
+            <br>
+            <h2 class="z">Corinthians renova empréstimo do atacante Talles Magno</h2>
+            <P class="z">A novela Talles Magno chegou ao fim. Na manhã desta quinta-feira(03/04), o Corinthians, o
+                jogador e
+                os
+                representantes do New York City, dos Estados Unidos, chegaram a um acordo e assinaram a renovação do
+                empréstimo
+                até o fim desta temporada.</P>
+            <P class="z">Para ficar com o atleta por mais seis meses, o Timão precisou desembolsar um valor previsto em
+                contrato
+                - diretoria alvinegra vai pagar cerca de R$ 5 milhões, condição imposta pelo Grupo City.</P>
+            <img class="img"
+                src="https://s2-ge.glbimg.com/lxPne_xaMxG5YU-XUs6DT8tM6Ac=/0x0:2885x2000/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2025/T/A/kTafAoTaaRuxkxjWtBxA/1743706247cd3109c63bf4323e6b987a5923becb96-1-.jpg"
+                alt="Renovação de Talles M.">
+            <h6 class="z">Publicado em: 03/04/2025 às 14:25</h6>
+            <br><br>
+
+
+            <h1 id="pj" class="z">PRÓXIMOS JOGOS:</h1>
+<br>
+
+            <h2 class="z">Palmeiras x Corinthians</h2>
+            <p class="z">
+                O clássico entre Palmeiras e Corinthians será realizado no dia 13 de abril de 2025, às 16h, no Allianz
+                Parque,
+                pela
+                3ª rodada do Campeonato Brasileiro. O Timão busca manter a boa sequência no campeonato e conquistar uma
+                vitória
+                fora de casa diante do rival. O jogo será transmitido ao vivo pela TV Globo e pelo Premiere.
+            </p>
+            <img class="img"
+                src="https://cdn.meutimao.com.br/fotos-do-corinthians/w614/2025/03/16/yuri_alberto_comemorando_gol_contra_o_palmeiras_1zbd.jpg"
+                alt="">
+            <h6 class="z">Publicado em: 09/04/2025 às 17:45</h6>
+            <br><br>
+
+            <h2 class="z">América de Cali x Corinthians</h2>
+            <p class="z">
+                Em partida válida pela Copa Sul-Americana, o Corinthians visita o América de Cali no dia 08 de abril de
+                2025
+                (terça-feira). O confronto está marcado às 21h30 no Estádio Pascual Guerrero (Estádio Olímpico Pascual
+                Guerrero),
+                em Valle del Cauca, Cali.
+            </p>
+            <p class="z">
+                O último confronto entre Corinthians e América de Cali aconteceu em 22 de novembro de 1995, às 21h30,
+                pela
+                Copa
+                Conmebol 1995. Na ocasião, o Timão acabou sendo derrotado por 3 a 1 no duelo que também aconteceu no
+                Estádio
+                Pascual Guerrero. O gol corinthiano na partida foi marcado por Clóvis.
+            </p>
+            <img class="img" src="https://jpimg.com.br/uploads/2025/03/memphis-depay-750x450.jpg" alt="memphis">
+            <h6 class="z">Publicado em: 06/04/2025 às 19:10</h6>
+            <br><br>
+
+            <h2 class="z">Corinthians x Vasco</h2>
+            <p class="z">
+                Em jogo válido pela 2ª rodada do Campeonato Brasileiro, Corinthians recebe o Vasco da Gama na Neo
+                Química
+                Arena.
+                O jogo acontece neste sábado (5) e a bola está prevista para rolar às 18h30 (de Brasília). A partida
+                terá
+                transmissão ao vivo exclusiva da Prime Video (streaming).
+            </p>
+            <p class="z">
+                O Timão vai em busca de retomar o caminho das vitórias após ficar apenas com o empate na 1ª rodada do
+                campeonato,
+                e com uma estreia abaixo na Sul-Americana com derrota para o Huracán.
+            </p>
+
+            <img class="img"
+                src="https://s2-ge.glbimg.com/IJm5GisMPiXZOL3En8MVhpubhBw=/0x0:2942x1961/640x360/smart/https://i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2024/j/w/gF0sxpTCK47t3a2vp5xA/rib5833.jpg"
+                alt="garro gol contra o vasco">
+            <h6 class="z">Publicado em: 03/04/2025 às 18:20</h6>
+            <br><br>
+
+
+
+            <H1 class="z" id="dm">DEPARTAMENTO MÉDICO:</H1>
+<br><br>
+            <h2 class="z">Corinthians confirma ausência de dupla titular para duelo na Sul-Americana</h2>
+            <P class="z"> Os novos desfalques são Igor Coronado e Memphis Depay, titulares na vitória sobre o Vasco da
+                Gama,
+                por
+                3 a 0, pelo
+                Brasileirão. O meia sofreu trauma no ombro esquerdo, enquanto o atacante holandês teve um trauma no
+                tornozelo
+                direito, ambos no primeiro tempo. A dupla permanecerá em São Paulo ao lado de outros nomes no
+                departamento
+                médico.
+            </P>
+            <img class="img"
+                src="https://cdn.meutimao.com.br/fotos-do-corinthians/w941/2024/09/25/coronado_e_memphis_conversam_47e5.jpg"
+                alt="g. Henrique/Angileri">
+            <h6 class="z">Publicado em: 06/04/2025 às 21:13</h6>
+            <br><br>
+
+            <h2 class="z">Gustavo Henrique vira desfalque no Corinthians; Angileri tem lesão diagnosticada.</h2>
+            <P class="z">Titular absoluto da equipe, Gustavo Henrique sentiu as dores na derrota de quarta-feira (02/04)
+                contra
+                o
+                Huracán, pela Sul-Americana, e iniciou tratamento com o departamento médico.</P>
+            <P class="z">O clube confirmou também que o lateral-esquerdo Fabrizio Angileri teve diagnosticada uma lesão
+                muscular
+                no bíceps femoral da coxa esquerda.</P>
+
+            <img class="img"
+                src="https://cdn.meutimao.com.br/_upload/noticia/2025/04/05/angileri-e-gustavo-henrique-serao-tratados-com-e5.jpg"
+                alt="g. Henrique/Angileri">
+            <h6 class="z">Publicado em: 04/04/2025 às 15:30</h6>
+            <br><br>
+            <h2 class="z">Garro vira Desfalque</h2>
+            <P class="z">Rodrigo Garro vai ficar fora de ação no Corinthians por tempo indeterminado para tratar uma
+                lesão
+                no
+                joelho direito. O meio-campista argentino de 27 anos sofre com dores na região desde o início da
+                temporada e
+                atuou
+                no sacrifício no empate sem gols com o Palmeiras, na última quinta-feira, em partida que selou a
+                conquista
+                do
+                Paulistão pelo time do Parque São Jorge.</P>
+            <P class="z">O camisa 8 do Corinthians foi diagnosticado com uma tendinopatia patelar. Ele sofre com o
+                problema
+                desde a reta
+                final de 2024 e adiou seu retorno nesta temporada para tratar a lesão, mas não voltou em plenas
+                condições. O
+                jogador estava usando uma proteção no joelho nas últimas partidas.</P>
+
+            <img class="img"
+                src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/03/garro_corinthians-e1741618144444.jpg?w=877"
+                alt="Rodrigo Garro">
+            <h6 class="z">Publicado em: 01/04/2025 às 10:43</h6>
+            <br><br>
+
+
+
+
+
+
+            <H1 class="z" id="rc">RESULTADOS E CLASSIFICAÇÃO:</H1>
+            <ul class="z" id="as">
+                <li>
+                    <h1><a class="l" href="#cb">Campeonato Brasileiro</a></h1>
+                </li>
+                <li>
+                    <h1><a class="l" href="#sula">Copa Sul-Americana</a></h1>   <!-- lista nao numerada que permite
+                                                                                 a gente viajar entre o site-->
+                </li>
+                <li>
+                    <h1><a class="l" href="#cdb">Copa do Brasil</a></h1>
+                </li>
+                <li>
+                    <h1><a class="l" href="#resultados">Resultados</a> </h1>
+                </li>
+
+            </ul>
+            <br><br>
+
+
+            <h1 class="z" id="cb">Classificação do Campeonato Brasileiro:</h1><br>
+
+            <h2 class="z">Brasileirão 2ª rodada:</h2>
+            <P class="z">Após o término da 2ª rodada do campeonato brasileiro o corinthians se encontra na 1ª colocação
+                da
+                tabela com 4
+                pontos:</P>
+            <img class="img" src="Captura de tela 2025-04-07 125937.png" alt="rodada 2">
+            <h6 class="z">Publicado em: 30/03/2025 às 23:56</h6>
+<br><br>
+            <h2 class="z">Brasileirão 1ª rodada:</h2>
+            <P class="z">Após o término da 1ª rodada do campeonato brasileiro o corinthians se encontra na 8ª posição
+                com 1
+                ponto:</P>
+            <img width="640" height="360" class="z" src="tabela1.png" alt="rodada 1">
+            <h6 class="z">Publicado em: 07/04/2025 às 10:44</h6>
+
+<br><br>
+
+            <h1 class="z" id="sula">Classificação da Sul-Americana</h1>
+            <h2 class="z">Classificação 1ª rodada:</h2>
+            <p class="z">Após a derrota na estreia da copa Sul-Americana o timão se encontra na 3ª colocação do grupo
+                sem
+                nenhum
+                ponto conquistado:
+            </p>
+            <img  class="img2" src="sula1.png" alt="Fase de grupos 1">
+            <h6 class="z">Publicado em: 02/03/2025 às 23:52</h6>
+            <br><br>
+
+            <h1 class="z" id="cdb">Copa do Brasil</h1>
+            <p class="z">SEM JOGOS AINDA.</p>
+            <br><br>
+
+            <h1 class="z" id="resultados">Resultados</h1>
+
+            <h2 class="z">América de Cali 1 x 1 Corinthians</h2>
+            <p class="z">Os colombianos abriram o placar aos 23 minutos com Luis Ramos, em bela jogada individual. O gol
+                corintiano veio somente aos 35 da segunda etapa com Matheuzinho, em chute desviado por Pestaña e que
+                enganou
+                Soto.</p>
+            <p class="z">Um ponto importante. O Corinthians conseguiu crescer na segunda etapa, especialmente após a
+                entrada
+                de titulares como André Carrillo e Yuri Alberto, e buscou o empate por 1 a 1 contra o América de Cali,
+                no
+                estádio Pascual Guerrero, na Colômbia.</p>
+            <img class="img"
+                src="https://s2-cbn.glbimg.com/UpbSJ-C8uEh-Mc_Cc2bkMBipnU4=/0x0:5012x3342/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_d975fad146a14bbfad9e763717b09688/internal_photos/bs/2025/m/l/OsWEBMQAGSqMPEibLTDg/000-39lu2ec.jpg"
+                alt="Memphis comemorando">
+            <h6 class="z">Publicado em: 09/04/2025 às 02:39</h6>
+            <br><br>
+
+            <h2 class="z">Corinthians 3 x 0 Vasco:</h2>
+            <p class="z">O Corinthians venceu o Vasco por 3 a 0 na Neo Química Arena e conquistou a sua primeira vitória
+                na
+                atual edição do Campeonato Brasileiro. Yuri Alberto, Memphis e João Victor, contra, fizeram os gols da
+                vitória do
+                Timão neste sábado (05).</p>
+            <p class="z">O Corinthians soube aproveitar o desentrosamento dos reservas do adversário e dominou o duelo.
+                Destaque
+                para Memphis, que se tornou o maior garçom do futebol brasileiro na temporada, com oito assistências, e
+                voltou a
+                marcar pelo Timão após seis partidas de jejum. O holandês ainda balançou a rede em outra oportunidade,
+                mas
+                Anderson Daronco anulou no VAR.</p>
+            <img class="img"
+                src="https://cdn2.tribunaonline.com.br/img/inline/230000/1200x720/Memphis-critica-VAR-e-alfineta-CBF-Preferem-regras0023594700202504061015-2.webp?fallback=https%3A%2F%2Fcdn2.tribunaonline.com.br%2Fimg%2Finline%2F230000%2FMemphis-critica-VAR-e-alfineta-CBF-Preferem-regras0023594700202504061015.jpg%3Fxid%3D1067780%26resize%3D1000%252C500%26t%3D1743945326&xid=1067780"
+                alt="Memphis comemorando">
+            <h6 class="z">Publicado em: 06/04/2025 às 03:27</h6>
+            <br><br>
+
+
+            <h2 class="z">Corinthians 1 x 2 Huracán:</h2>
+            <p class="z">Na noite desta quarta-feira (2), Corinthians e Huracán estrearam na Copa Sul-Americana. Na Neo
+                Química
+                Arena, os argentinos foram melhores e venceram por 2 a 1, em jogo válido pela primeira rodada do Grupo C
+                do
+                torneio continental.</p>
+            <p class="z">Os gols da equipe argentina foram marcados por Leonardo Sequeira, enquanto Raniele fez o único
+                tento do
+                Timão. Os três gols foram anotados na primeira etapa.</p>
+            <img class="img"
+                src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1Cj54Z.img?w=768&h=474&m=6&x=537&y=98&s=203&d=170"
+                alt="Raniele">
+            <h6 class="z">Publicado em: 02/03/2025 às 23:52</h6>
+            <br><br>
+
+
+            <h2 class="z">Bahia 1 x 1 Corinthians:</h2>
+            <p class="z">O Corinthians fez sua estreia no Campeonato Brasileiro contra a equipe do Bahia na Fonte Nova,
+                o
+                jogo
+                terminou empatado com o placar de 1x1.</p>
+            <p class="z">A equipe do Bahia saiu na frente com um gol marcado pelo lateral
+                Gilberto ainda no primeiro tempo, já o gol corinthiano foi
+                marcado pelo atacante Héctor Hernández nos acréscimos do segundo tempo, o que garantiu o empate.</p>
+            <img class="img"
+                src="https://cdn.meutimao.com.br/_upload/noticia/2025/03/30/hector-hernandez-marcou-o-gol-do-empate-do-ou.jpg"
+                alt="Hernández">
+            <h6 class="z">Publicado em: 30/03/2025 às 23:10</h6>
+            <br><br>
+            <h1 class="z" id="elenco">Elenco do Timão:</h1><BR>
+            <div class="z" id="elenco1">
+                <h4 class="posicoes">GOLEIROS:</h4>
+
+                <ul class="ul_elenco">
+                    <li>Hugo Souza</li>
+                    <li>Matheus Donelli</li>
+                    <li>Felipe Longo</li>
+                </ul>
+                <br><br>
+                <h4 class="posicoes">ZAGUEIROS:</h4>
+
+                <ul class="ul_elenco">
+                    <li>Gustavo Henrique</li>
+                    <li>Felix Torres</li>
+                    <li>André Ramalho</li>
+                    <li>Tchoca</li>
+                    <li>Cacá</li>
+                </ul>
+
+            </div>
+            <br><br>
+            <div class="z" id="elenco2">
+                <h4 class="posicoes">LATERAIS:</h4>
+
+                <ul class="ul_elenco">
+                    <li>Diego Palacios</li>
+                    <li>Fabrizio Angileri </li>
+                    <li>Hugo</li>
+                    <li>Matheuzinho</li>
+                    <li>Leo Maná</li>
+                    <li>Matheus Bidu</li>
+                </ul>
+
+                <h4 class="posicoes">ATACANTES:</h4>
+
+                <ul class="ul_elenco">
+                    <li>Yuri Alberto</li>
+                    <li>Memphis Depay</li>
+                    <li>Ángel Romero</li>
+                    <li>Talles Magno</li>
+                    <li>Giovane</li>
+                    <li>Héctor Hernández</li>
+                    <li>Kayke</li>
+                </ul>
+            </div>
+
+            <br><br>
+            <div class="z" id="elenco3">
+
+                <h4 class="posicoes">MEIAS:</h4>
+
+                <ul class="ul_elenco">
+                    <li>Martinez</li>
+                    <li>Raniele</li>
+                    <li>Charles</li>
+                    <LI>Rodrigo Garro</LI>
+                    <LI>Maycon</LI>
+                    <LI>Igor Coronado</LI>
+                    <LI>Ryan</LI>
+                    <LI>Alex Santana</LI>
+                </ul>
+
+
+                <br><br><br>
+
+
+                <h4 class="posicoes">C. TÉCNICA:</h4>
+
+                <UL class="ul_elenco">
+                    <LI>Ramón Díaz</LI>
+                    <LI>Emiliano Díaz</LI>
+                </UL>
+            </div>
+            <br><br>
+
+
+
+    </main>
+    <footer> <!--Atalhos + redes sociais -->
+        <div class="rr" id="divfooter">
+            <H1 class="zi"> MENU:</H1>
+            <ul>
+                <li>
+                    <h1><a class="menufooter" href="#ng">Notícias Gerais</a></h1>
+                </li>
+                <li>
+                    <h1><a class="menufooter" href="#mb">Mercado da Bola</a></h1>
+                </li>
+                <li>
+                    <h1><a class="menufooter" href="#pj">Próximos Jogos</a></h1>
+                </li>
+                <li>
+                    <h1><a class="menufooter" href="#dm">Departamento Médico</a></h1>
+                </li>
+                <li>
+                    <h1><a class="menufooter" href="#rc">Resultados/Classificação</a></h1>
+                </li>
+
+
+            </ul>
+        </div>
+        <div class="rr" id="divfooter2">
+            <h1 class="zi">Redes sociais:</h1>
+            <ul id="ulfooter">
+
+                <li>
+                    <h3>Siga nosso Instagram:</h3>
+                    <a class="zi" href="https://www.instagram.com/_mundo.corinthiano?igsh=MTJidDNydDZkdWUwNA=="><img
+                            class="zi" height="50" width="50"
+                            src="https://store-images.s-microsoft.com/image/apps.43327.13510798887167234.cadff69d-8229-427b-a7da-21dbaf80bd81.79b8f512-1b22-45d6-9495-881485e3a87e?h=210"
+                            alt="instagram"></a>
+                </li>
+
+
+                <li>
+                    <h3>Entre no nosso grupo:</h3>
+                    <a class="zi" href="https://chat.whatsapp.com/IvXCPr6qqCyK2iyKWE4PGq"><img class="zi" height="50"
+                            width="50"
+                            src="https://store-images.s-microsoft.com/image/apps.8453.13655054093851568.4a371b72-2ce8-4bdb-9d83-be49894d3fa0.7f3687b9-847d-4f86-bb5c-c73259e2b38e?h=380"
+                            alt="whatsapp"></a>
+                </li>
+                <h3>Nos siga no X:</h3>
+                <li>
+                    <a class="zi" href="https://x.com/joaosindafarofa?t=iuWB_SIW3anN-Uxs20XLJg&s=09"><img class="zi"
+                            height="50" width="50"
+                            src="https://pbs.twimg.com/profile_images/1683509557429936128/CyRdcvGJ_400x400.jpg"
+                            alt="x"></a>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
